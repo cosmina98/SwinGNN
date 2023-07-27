@@ -189,6 +189,102 @@ def get_model_input_output_channels(config):
                 raw_num_node_type, raw_num_adj_type = 4, 4
             elif config.dataset.name == 'zinc250k':
                 raw_num_node_type, raw_num_adj_type = 9, 4
+            elif config.dataset.name == 'ames_25_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
+            elif config.dataset.name == 'ames_25_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
+            elif config.dataset.name == 'ames_33_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
+            elif config.dataset.name == 'ames_33_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
+            elif config.dataset.name == 'ames_50_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
+            elif config.dataset.name == 'ames_50_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
+            elif config.dataset.name == 'ames_40_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
+            elif config.dataset.name == 'ames_40_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
+            elif config.dataset.name == 'bbb_martins_25_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 11, 4
+            elif config.dataset.name == 'bbb_martins_25_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 12, 4
+            elif config.dataset.name == 'bbb_martins_33_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
+            elif config.dataset.name == 'bbb_martins_33_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 12, 4
+            elif config.dataset.name == 'bbb_martins_50_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 11, 43
+            elif config.dataset.name == 'bbb_martins_50_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 12, 4
+            elif config.dataset.name == 'bbb_martins_40_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 11, 4
+            elif config.dataset.name == 'bbb_martins_40_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 12, 4
+            elif config.dataset.name == 'cyp1a2_veith_25_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 23, 4
+            elif config.dataset.name == 'cyp1a2_veith_25_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 16, 4
+            elif config.dataset.name == 'cyp1a2_veith_33_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 24, 4
+            elif config.dataset.name == 'cyp1a2_veith_33_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 17, 4
+            elif config.dataset.name == 'cyp1a2_veith_50_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 25, 4
+            elif config.dataset.name == 'cyp1a2_veith_50_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 17, 4
+            elif config.dataset.name == 'cyp1a2_veith_40_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 24, 4
+            elif config.dataset.name == 'cyp1a2_veith_40_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 17, 4
+            elif config.dataset.name == 'cyp2c19_veith_25_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 22, 4
+            elif config.dataset.name == 'cyp2c19_veith_25_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 16, 4
+            elif config.dataset.name == 'cyp2c19_veith_33_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 22, 4
+            elif config.dataset.name == 'cyp2c19_veith_33_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 17, 4
+            elif config.dataset.name == 'cyp2c19_veith_50_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 25, 4
+            elif config.dataset.name == 'cyp2c19_veith_50_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 17, 4
+            elif config.dataset.name == 'cyp2c19_veith_40_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 26, 4
+            elif config.dataset.name == 'cyp2c19_veith_40_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 17, 4
+            elif config.dataset.name == 'herg_karim_25_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 14, 4
+            elif config.dataset.name == 'herg_karim_25_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
+            elif config.dataset.name == 'herg_karim_33_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 12, 4
+            elif config.dataset.name == 'herg_karim_33_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 9, 4
+            elif config.dataset.name == 'herg_karim_50_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
+            elif config.dataset.name == 'herg_karim_50_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 15, 4
+            elif config.dataset.name == 'herg_karim_40_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
+            elif config.dataset.name == 'herg_karim_40_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 14, 4
+            elif config.dataset.name == 'lipophilicity_astrazeneca_25_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
+            elif config.dataset.name == 'lipophilicity_astrazeneca_25_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 9, 4
+            elif config.dataset.name == 'lipophilicity_astrazeneca_33_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 9, 4
+            elif config.dataset.name == 'lipophilicity_astrazeneca_33_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 12, 4
+            elif config.dataset.name == 'lipophilicity_astrazeneca_50_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
+            elif config.dataset.name == 'lipophilicity_astrazeneca_50_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 12, 4
+            elif config.dataset.name == 'lipophilicity_astrazeneca_40_train1_neg':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
+            elif config.dataset.name == 'lipophilicity_astrazeneca_40_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 11, 4
             else:
                 raise NotImplementedError
 

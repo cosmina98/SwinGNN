@@ -362,10 +362,109 @@ def process_for_nspdk(dataset):
     with open(f'data/{dataset.lower()}_test_nx.pkl', 'wb') as f:
         pickle.dump(nx_graphs, f)
 
+def get_max_atoms(data_name):
+    if  data_name == 'ames_25_train1_neg':
+        max_atoms=55
+    elif data_name == 'ames_25_train1_pos':
+         max_atoms=54
+    elif data_name == 'ames_33_train1_neg':
+         max_atoms=55
+    elif data_name == 'ames_33_train1_pos':
+         max_atoms=54
+    elif data_name == 'ames_50_train1_neg':
+         max_atoms=55
+    elif data_name == 'ames_50_train1_pos':
+         max_atoms=54
+    elif data_name == 'ames_40_train1_neg':
+         max_atoms=55
+    elif data_name == 'ames_40_train1_pos':
+         max_atoms=54
+    elif data_name == 'bbb_martins_25_train1_neg':
+         max_atoms=123
+    elif data_name == 'bbb_martins_25_train1_pos':
+         max_atoms=76
+    elif data_name == 'bbb_martins_33_train1_neg':
+         max_atoms=123
+    elif data_name == 'bbb_martins_33_train1_pos':
+         max_atoms=76
+    elif data_name == 'bbb_martins_50_train1_neg':
+         max_atoms=123
+    elif data_name == 'bbb_martins_50_train1_pos':
+         max_atoms=76
+    elif data_name == 'bbb_martins_40_train1_neg':
+         max_atoms=132
+    elif data_name == 'bbb_martins_40_train1_pos':
+         max_atoms=76
+    elif data_name == 'cyp1a2_veith_25_train1_neg':
+         max_atoms=123
+    elif data_name == 'cyp1a2_veith_25_train1_pos':
+         max_atoms=106
+    elif data_name == 'cyp1a2_veith_33_train1_neg':
+         max_atoms=123
+    elif data_name == 'cyp1a2_veith_33_train1_pos':
+         max_atoms=85
+    elif data_name == 'cyp1a2_veith_50_train1_neg':
+         max_atoms=123
+    elif data_name == 'cyp1a2_veith_50_train1_pos':
+         max_atoms=106
+    elif data_name == 'cyp1a2_veith_40_train1_neg':
+         max_atoms=123
+    elif data_name == 'cyp1a2_veith_40_train1_pos':
+         max_atoms=106
+    elif data_name == 'cyp2c19_veith_25_train1_neg':
+         max_atoms=85
+    elif data_name == 'cyp2c19_veith_25_train1_pos':
+         max_atoms=67
+    elif data_name == 'cyp2c19_veith_33_train1_neg':
+         max_atoms=101
+    elif data_name == 'cyp2c19_veith_33_train1_pos':
+         max_atoms=67
+    elif data_name == 'cyp2c19_veith_50_train1_neg':
+         max_atoms=101
+    elif data_name == 'cyp2c19_veith_50_train1_pos':
+         max_atoms=106
+    elif data_name == 'cyp2c19_veith_40_train1_neg':
+         max_atoms=114
+    elif data_name == 'cyp2c19_veith_40_train1_pos':
+         max_atoms=106
+    elif data_name == 'herg_karim_25_train1_neg':
+         max_atoms=58
+    elif data_name == 'herg_karim_25_train1_pos':
+         max_atoms=50
+    elif data_name == 'herg_karim_33_train1_neg':
+         max_atoms=58
+    elif data_name == 'herg_karim_33_train1_pos':
+         max_atoms=50
+    elif data_name == 'herg_karim_50_train1_neg':
+         max_atoms=58
+    elif data_name == 'herg_karim_50_train1_pos':
+         max_atoms=50
+    elif data_name == 'herg_karim_40_train1_neg':
+         max_atoms=58
+    elif data_name == 'herg_karim_40_train1_pos':
+         max_atoms=50
+    elif data_name == 'lipophilicity_astrazeneca_25_train1_neg':
+         max_atoms=115
+    elif data_name == 'lipophilicity_astrazeneca_25_train1_pos':
+         max_atoms=72
+    elif data_name == 'lipophilicity_astrazeneca_33_train1_neg':
+         max_atoms=65
+    elif data_name == 'lipophilicity_astrazeneca_33_train1_pos':
+         max_atoms=72
+    elif data_name == 'lipophilicity_astrazeneca_50_train1_neg':
+         max_atoms=115
+    elif data_name == 'lipophilicity_astrazeneca_50_train1_pos':
+         max_atoms=58
+    elif data_name == 'lipophilicity_astrazeneca_40_train1_neg':
+         max_atoms=115
+    elif data_name == 'lipophilicity_astrazeneca_40_train1_pos':
+         max_atoms=61
 
+
+    return max_atoms
 def main():
     parser = argparse.ArgumentParser(description='')
-    parser.add_argument('--dataset', type=str, default='ZINC250k', choices=['ZINC250k', 'QM9'])
+    parser.add_argument('--dataset', type=str, default='ZINC250k', choices=['qm9', 'zinc250k', 'ames_25_train1_neg','ames_25_train1_pos','ames_33_train1_neg','ames_33_train1_pos','ames_40_train1_neg','ames_40_train1_pos','ames_50_train1_neg','ames_50_train1_pos','bbb_martins_25_train1_neg','bbb_martins_25_train1_pos','bbb_martins_33_train1_neg','bbb_martins_33_train1_pos','bbb_martins_50_train1_neg','bbb_martins_50_train1_pos','bbb_martins_40_train1_neg','bbb_martins_40_train1_pos','cyp1a2_veith_25_train1_neg','cyp1a2_veith_25_train1_pos','cyp1a2_veith_33_train1_neg','cyp1a2_veith_33_train1_pos','cyp1a2_veith_50_train1_neg','cyp1a2_veith_50_train1_pos','cyp1a2_veith_40_train1_neg','cyp1a2_veith_40_train1_pos','cyp2c19_veith_25_train1_neg','cyp2c19_veith_25_train1_pos','cyp2c19_veith_33_train1_neg','cyp2c19_veith_33_train1_pos','cyp2c19_veith_50_train1_neg','cyp2c19_veith_50_train1_pos','cyp2c19_veith_40_train1_neg','cyp2c19_veith_40_train1_pos','herg_karim_25_train1_neg','herg_karim_25_train1_pos','herg_karim_33_train1_neg','herg_karim_33_train1_pos','herg_karim_50_train1_neg','herg_karim_50_train1_pos','herg_karim_40_train1_neg','herg_karim_40_train1_pos','lipophilicity_astrazeneca_25_train1_neg','lipophilicity_astrazeneca_25_train1_pos','lipophilicity_astrazeneca_33_train1_neg','lipophilicity_astrazeneca_33_train1_pos','lipophilicity_astrazeneca_50_train1_neg','lipophilicity_astrazeneca_50_train1_pos','lipophilicity_astrazeneca_40_train1_neg','lipophilicity_astrazeneca_40_train1_pos'])
     args = parser.parse_args()
 
     start_time = time.time()
@@ -381,6 +480,11 @@ def main():
         path = 'dataset/qm9.csv'
         smiles_col = 'SMILES1'
         label_idx = 2
+    elif data_name in [ 'ames_25_train1_neg','ames_25_train1_pos','ames_33_train1_neg','ames_33_train1_pos','ames_40_train1_neg','ames_40_train1_pos','ames_50_train1_neg','ames_50_train1_pos','bbb_martins_25_train1_neg','bbb_martins_25_train1_pos','bbb_martins_33_train1_neg','bbb_martins_33_train1_pos','bbb_martins_50_train1_neg','bbb_martins_50_train1_pos','bbb_martins_40_train1_neg','bbb_martins_40_train1_pos','cyp1a2_veith_25_train1_neg','cyp1a2_veith_25_train1_pos','cyp1a2_veith_33_train1_neg','cyp1a2_veith_33_train1_pos','cyp1a2_veith_50_train1_neg','cyp1a2_veith_50_train1_pos','cyp1a2_veith_40_train1_neg','cyp1a2_veith_40_train1_pos','cyp2c19_veith_25_train1_neg','cyp2c19_veith_25_train1_pos','cyp2c19_veith_33_train1_neg','cyp2c19_veith_33_train1_pos','cyp2c19_veith_50_train1_neg','cyp2c19_veith_50_train1_pos','cyp2c19_veith_40_train1_neg','cyp2c19_veith_40_train1_pos','herg_karim_25_train1_neg','herg_karim_25_train1_pos','herg_karim_33_train1_neg','herg_karim_33_train1_pos','herg_karim_50_train1_neg','herg_karim_50_train1_pos','herg_karim_40_train1_neg','herg_karim_40_train1_pos','lipophilicity_astrazeneca_25_train1_neg','lipophilicity_astrazeneca_25_train1_pos','lipophilicity_astrazeneca_33_train1_neg','lipophilicity_astrazeneca_33_train1_pos','lipophilicity_astrazeneca_50_train1_neg','lipophilicity_astrazeneca_50_train1_pos','lipophilicity_astrazeneca_40_train1_neg','lipophilicity_astrazeneca_40_train1_pos']:
+        max_atoms =get_max_atoms(data_name)
+        path = 'data/{}.csv'.format(data_name)
+        smiles_col = 'smiles'
+        label_idx = 1
     else:
         raise ValueError(f"[ERROR] Unexpected value data_name={data_name}")
 

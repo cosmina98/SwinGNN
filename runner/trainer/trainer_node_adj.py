@@ -33,6 +33,103 @@ def node_adj_move_forward_one_epoch(model, optimizer, ema_helper, dataloader, tr
     elif dataset_name == 'zinc250k':
         oh_num_node_attr_type = 9
         oh_num_edge_attr_type = 4
+    elif dataset_name == 'ames_25_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+    elif dataset_name == 'ames_25_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+    elif dataset_name == 'ames_33_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+    elif dataset_name == 'ames_33_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+    elif dataset_name == 'ames_50_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+    elif dataset_name == 'ames_50_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+    elif dataset_name == 'ames_40_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+    elif dataset_name == 'ames_40_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+    elif dataset_name == 'bbb_martins_25_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 11, 4
+    elif dataset_name == 'bbb_martins_25_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 12, 4
+    elif dataset_name == 'bbb_martins_33_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+    elif dataset_name == 'bbb_martins_33_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 12, 4
+    elif dataset_name == 'bbb_martins_50_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 11, 43
+    elif dataset_name == 'bbb_martins_50_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 12, 4
+    elif dataset_name == 'bbb_martins_40_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 11, 4
+    elif dataset_name == 'bbb_martins_40_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 12, 4
+    elif dataset_name == 'cyp1a2_veith_25_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 23, 4
+    elif dataset_name == 'cyp1a2_veith_25_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 16, 4
+    elif dataset_name == 'cyp1a2_veith_33_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 24, 4
+    elif dataset_name == 'cyp1a2_veith_33_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 17, 4
+    elif dataset_name == 'cyp1a2_veith_50_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 25, 4
+    elif dataset_name == 'cyp1a2_veith_50_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 17, 4
+    elif dataset_name == 'cyp1a2_veith_40_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 24, 4
+    elif dataset_name == 'cyp1a2_veith_40_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 17, 4
+    elif dataset_name == 'cyp2c19_veith_25_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 22, 4
+    elif dataset_name == 'cyp2c19_veith_25_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 16, 4
+    elif dataset_name == 'cyp2c19_veith_33_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 22, 4
+    elif dataset_name == 'cyp2c19_veith_33_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 17, 4
+    elif dataset_name == 'cyp2c19_veith_50_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 25, 4
+    elif dataset_name == 'cyp2c19_veith_50_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 17, 4
+    elif dataset_name == 'cyp2c19_veith_40_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 26, 4
+    elif dataset_name == 'cyp2c19_veith_40_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 17, 4
+    elif dataset_name == 'herg_karim_25_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 14, 4
+    elif dataset_name == 'herg_karim_25_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+    elif dataset_name == 'herg_karim_33_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 12, 4
+    elif dataset_name == 'herg_karim_33_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 9, 4
+    elif dataset_name == 'herg_karim_50_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+    elif dataset_name == 'herg_karim_50_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 15, 4
+    elif dataset_name == 'herg_karim_40_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+    elif dataset_name == 'herg_karim_40_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 14, 4
+    elif dataset_name == 'lipophilicity_astrazeneca_25_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+    elif dataset_name == 'lipophilicity_astrazeneca_25_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 9, 4
+    elif dataset_name == 'lipophilicity_astrazeneca_33_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 9, 4
+    elif dataset_name == 'lipophilicity_astrazeneca_33_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 12, 4
+    elif dataset_name == 'lipophilicity_astrazeneca_50_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+    elif dataset_name == 'lipophilicity_astrazeneca_50_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 12, 4
+    elif dataset_name == 'lipophilicity_astrazeneca_40_train1_neg':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+    elif dataset_name == 'lipophilicity_astrazeneca_40_train1_pos':
+            oh_num_node_attr_type, oh_num_edge_attr_type = 11, 4
+
     else:
         raise NotImplementedError
 
@@ -169,7 +266,7 @@ def node_adj_go_training(model, optimizer, scheduler, ema_helper,
         # training
         model.train()
         node_adj_move_forward_one_epoch(model, optimizer, ema_helper, train_dl, train_obj_gen, loss_func, epoch_logger,
-                                        'train', config.dataset.name, node_encoding, edge_encoding,
+                                        'train', dataset_name, node_encoding, edge_encoding,
                                         sanity_check_save_dir)
         scheduler.step()
         logging.debug("epoch: {:05d}| effective learning rate: {:12.6f}".format(epoch, optimizer.param_groups[0]["lr"]))
@@ -183,7 +280,7 @@ def node_adj_go_training(model, optimizer, scheduler, ema_helper,
             test_model.eval()
 
             node_adj_move_forward_one_epoch(test_model, optimizer, ema_helper, test_dl, train_obj_gen, loss_func, epoch_logger,
-                                            'test', config.dataset.name, node_encoding, edge_encoding,
+                                            'test', dataset_name, node_encoding, edge_encoding,
                                             sanity_check_save_dir)
 
             """Network weight saving"""

@@ -92,6 +92,10 @@ def load_dataset_mol(config):
         test_idx = test_idx['valid_idxs']
         test_idx = [int(i) for i in test_idx]
 
+    elif config.dataset.name in [ 'ames_25_train1_neg','ames_25_train1_pos','ames_33_train1_neg','ames_33_train1_pos','ames_40_train1_neg','ames_40_train1_pos','ames_50_train1_neg','ames_50_train1_pos','bbb_martins_25_train1_neg','bbb_martins_25_train1_pos','bbb_martins_33_train1_neg','bbb_martins_33_train1_pos','bbb_martins_50_train1_neg','bbb_martins_50_train1_pos','bbb_martins_40_train1_neg','bbb_martins_40_train1_pos','cyp1a2_veith_25_train1_neg','cyp1a2_veith_25_train1_pos','cyp1a2_veith_33_train1_neg','cyp1a2_veith_33_train1_pos','cyp1a2_veith_50_train1_neg','cyp1a2_veith_50_train1_pos','cyp1a2_veith_40_train1_neg','cyp1a2_veith_40_train1_pos','cyp2c19_veith_25_train1_neg','cyp2c19_veith_25_train1_pos','cyp2c19_veith_33_train1_neg','cyp2c19_veith_33_train1_pos','cyp2c19_veith_50_train1_neg','cyp2c19_veith_50_train1_pos','cyp2c19_veith_40_train1_neg','cyp2c19_veith_40_train1_pos','herg_karim_25_train1_neg','herg_karim_25_train1_pos','herg_karim_33_train1_neg','herg_karim_33_train1_pos','herg_karim_50_train1_neg','herg_karim_50_train1_pos','herg_karim_40_train1_neg','herg_karim_40_train1_pos','lipophilicity_astrazeneca_25_train1_neg','lipophilicity_astrazeneca_25_train1_pos','lipophilicity_astrazeneca_33_train1_neg','lipophilicity_astrazeneca_33_train1_pos','lipophilicity_astrazeneca_50_train1_neg','lipophilicity_astrazeneca_50_train1_pos','lipophilicity_astrazeneca_40_train1_neg','lipophilicity_astrazeneca_40_train1_pos']:
+        test_idx = test_idx['valid_idxs']
+        test_idx = [int(i) for i in test_idx]
+
     train_idx = [i for i in range(len(graphs)) if i not in test_idx]
 
     if config.dataset.subset is not None:
@@ -104,7 +108,7 @@ def load_dataset_mol(config):
         logging.info("Molecule dataset subset selection: the first {:d} data points are used".format(set_size))
 
     n_max = int(config.dataset.max_node_num)
-    assert config.dataset.name.lower() in ['qm9', 'zinc250k']
+    assert config.dataset.name.lower() in ['qm9', 'zinc250k','ames_25_train1_neg','ames_25_train1_pos','ames_33_train1_neg','ames_33_train1_pos','ames_40_train1_neg','ames_40_train1_pos','ames_50_train1_neg','ames_50_train1_pos','bbb_martins_25_train1_neg','bbb_martins_25_train1_pos','bbb_martins_33_train1_neg','bbb_martins_33_train1_pos','bbb_martins_50_train1_neg','bbb_martins_50_train1_pos','bbb_martins_40_train1_neg','bbb_martins_40_train1_pos','cyp1a2_veith_25_train1_neg','cyp1a2_veith_25_train1_pos','cyp1a2_veith_33_train1_neg','cyp1a2_veith_33_train1_pos','cyp1a2_veith_50_train1_neg','cyp1a2_veith_50_train1_pos','cyp1a2_veith_40_train1_neg','cyp1a2_veith_40_train1_pos','cyp2c19_veith_25_train1_neg','cyp2c19_veith_25_train1_pos','cyp2c19_veith_33_train1_neg','cyp2c19_veith_33_train1_pos','cyp2c19_veith_50_train1_neg','cyp2c19_veith_50_train1_pos','cyp2c19_veith_40_train1_neg','cyp2c19_veith_40_train1_pos','herg_karim_25_train1_neg','herg_karim_25_train1_pos','herg_karim_33_train1_neg','herg_karim_33_train1_pos','herg_karim_50_train1_neg','herg_karim_50_train1_pos','herg_karim_40_train1_neg','herg_karim_40_train1_pos','lipophilicity_astrazeneca_25_train1_neg','lipophilicity_astrazeneca_25_train1_pos','lipophilicity_astrazeneca_33_train1_neg','lipophilicity_astrazeneca_33_train1_pos','lipophilicity_astrazeneca_50_train1_neg','lipophilicity_astrazeneca_50_train1_pos','lipophilicity_astrazeneca_40_train1_neg','lipophilicity_astrazeneca_40_train1_pos']
     adj_ls, x_ls, node_flags_ls = [], [], []
 
     # TODO: remove the for loop and do everything with tensor slicing
@@ -136,6 +140,295 @@ def load_dataset_mol(config):
                 node[el] = idx
             node = torch.from_numpy(node).to(torch.float32)
             node[torch.logical_not(node_flags)] = 0.0
+        elif config.dataset.name == 'ames_25_train1_neg':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 15, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'ames_25_train1_pos':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 15, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'ames_33_train1_neg':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 15, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'ames_33_train1_pos':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 15, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'ames_50_train1_neg':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 15, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'ames_50_train1_pos':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 15, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'ames_40_train1_neg':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 15, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'ames_40_train1_pos':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 15, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'bbb_martins_25_train1_neg':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 11, 15, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'bbb_martins_25_train1_pos':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 15, 16, 17, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'bbb_martins_33_train1_neg':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 11, 15, 16, 17,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'bbb_martins_33_train1_pos':
+            atomic_num_list=[1, 35, 5, 6, 7, 8, 9, 11, 15, 16, 17,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'bbb_martins_50_train1_neg':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 11, 15, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'bbb_martins_50_train1_pos':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 15, 16, 17, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'bbb_martins_40_train1_neg':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 11, 15, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'bbb_martins_40_train1_pos':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 15, 16, 17, 20, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp1a2_veith_25_train1_neg':
+            atomic_num_list=[1, 3, 6, 7, 8, 9, 11, 14, 15, 16, 17, 78, 19, 25, 26, 29, 30, 33, 34, 35, 50, 51, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp1a2_veith_25_train1_pos':
+            atomic_num_list=[1, 6, 7, 8, 9, 11, 78, 15, 16, 17, 14, 80, 28, 29, 34, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp1a2_veith_33_train1_neg':
+            atomic_num_list=[1, 3, 6, 7, 8, 9, 11, 14, 15, 16, 17, 80, 19, 78, 25, 26, 27, 30, 33, 34, 35, 50, 51, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp1a2_veith_33_train1_pos':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 14, 15, 16, 17, 80, 29, 34, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp1a2_veith_40_train1_neg':
+            atomic_num_list=[1, 3, 6, 7, 8, 9, 11, 78, 15, 16, 17, 80, 19, 14, 24, 25, 26, 27, 30, 33, 34, 35, 51, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp1a2_veith_40_train1_pos':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 78, 15, 16, 17, 80, 14, 29, 34, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp1a2_veith_50_train1_neg':
+            atomic_num_list=[1, 3, 6, 7, 8, 9, 11, 14, 15, 16, 17, 80, 78, 20, 24, 25, 26, 29, 30, 33, 34, 35, 50, 51, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp1a2_veith_50_train1_pos':
+            atomic_num_list=[1, 6, 7, 8, 9, 11, 78, 15, 16, 17, 14, 80, 28, 29, 34, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp2c19_veith_25_train1_neg':
+            atomic_num_list=[1, 3, 5, 6, 7, 8, 9, 11, 14, 15, 16, 17, 80, 78, 20, 26, 29, 33, 35, 50, 51, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp2c19_veith_25_train1_pos':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 78, 15, 16, 17, 80, 19, 29, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp2c19_veith_33_train1_neg':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 78, 15, 16, 17, 80, 19, 28, 29, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp2c19_veith_33_train1_pos':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 78, 15, 16, 17, 80, 19, 28, 29, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp2c19_veith_40_train1_neg':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 78, 15, 16, 17, 14, 19, 20, 80, 25, 26, 29, 30, 33, 34, 35, 44, 50, 51, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp2c19_veith_40_train1_pos':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 14, 15, 16, 17, 80, 19, 78, 26, 29, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp2c19_veith_50_train1_neg':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 78, 15, 16, 17, 14, 19, 20, 25, 26, 29, 30, 33, 34, 35, 44, 50, 51, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'cyp2c19_veith_50_train1_pos':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 14, 15, 16, 17, 80, 19, 78, 29, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'herg_karim_25_train1_neg':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 79, 16, 17, 15, 34, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'herg_karim_25_train1_pos':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 15, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'herg_karim_33_train1_neg':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 15, 16, 17, 34, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'herg_karim_33_train1_pos':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'herg_karim_40_train1_neg':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 14, 15, 16, 17, 34, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'herg_karim_40_train1_pos':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 15, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'herg_karim_50_train1_neg':
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 14, 15, 16, 17, 79, 34, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'herg_karim_50_train1_pos':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 14, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'lipophilicity_astrazeneca_25_train1_neg':
+            atomic_num_list=[1, 35, 5, 6, 7, 8, 9, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'lipophilicity_astrazeneca_25_train1_pos':
+            atomic_num_list=[1, 35, 6, 7, 8, 9, 15, 16, 17,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'lipophilicity_astrazeneca_33_train1_neg':
+            atomic_num_list=[1, 35, 5, 6, 7, 8, 9, 16, 17,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'lipophilicity_astrazeneca_33_train1_pos':
+            atomic_num_list=[1, 6, 7, 8, 9, 14, 15, 16, 17, 34, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'lipophilicity_astrazeneca_40_train1_neg':
+            atomic_num_list=[1, 35, 5, 6, 7, 8, 9, 16, 17, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'lipophilicity_astrazeneca_40_train1_pos':
+            atomic_num_list=[1, 34, 35, 5, 6, 7, 8, 9, 15, 16, 17,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'lipophilicity_astrazeneca_50_train1_neg':
+            atomic_num_list=[1, 35, 5, 6, 7, 8, 9, 15, 16, 17,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+        elif config.dataset.name == 'lipophilicity_astrazeneca_50_train1_pos':
+            atomic_num_list=[1, 6, 7, 8, 9, 14, 15, 16, 17, 34, 35, 53,0]
+            node_flags = torch.from_numpy(node > 0)  # [N = 38]
+            for el in range(node.shape[0]):
+                idx = atomic_num_list.index(node[el])
+                node[el] = idx
+
         else:
             raise NotImplementedError
         adj_ls.append(adj)  # [N, N]
@@ -161,6 +454,105 @@ def load_dataset_mol(config):
     elif config.dataset.name == 'zinc250k':
         num_node_type = 9
         num_adj_type = 4
+
+    elif config.dataset.name == 'zinc250k':
+            num_node_type, num_adj_type = 9, 4
+    elif config.dataset.name == 'ames_25_train1_neg':
+            num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name == 'ames_25_train1_pos':
+            num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name == 'ames_33_train1_neg':
+            num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name == 'ames_33_train1_pos':
+            num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name == 'ames_50_train1_neg':
+            num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name == 'ames_50_train1_pos':
+            num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name == 'ames_40_train1_neg':
+            num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name == 'ames_40_train1_pos':
+            num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name == 'bbb_martins_25_train1_neg':
+            num_node_type, num_adj_type = 11, 4
+    elif config.dataset.name == 'bbb_martins_25_train1_pos':
+            num_node_type, num_adj_type = 12, 4
+    elif config.dataset.name == 'bbb_martins_33_train1_neg':
+            num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name == 'bbb_martins_33_train1_pos':
+            num_node_type, num_adj_type = 12, 4
+    elif config.dataset.name == 'bbb_martins_50_train1_neg':
+            num_node_type, num_adj_type = 11, 43
+    elif config.dataset.name == 'bbb_martins_50_train1_pos':
+            num_node_type, num_adj_type = 12, 4
+    elif config.dataset.name == 'bbb_martins_40_train1_neg':
+            num_node_type, num_adj_type = 11, 4
+    elif config.dataset.name == 'bbb_martins_40_train1_pos':
+            num_node_type, num_adj_type = 12, 4
+    elif config.dataset.name == 'cyp1a2_veith_25_train1_neg':
+            num_node_type, num_adj_type = 23, 4
+    elif config.dataset.name == 'cyp1a2_veith_25_train1_pos':
+            num_node_type, num_adj_type = 16, 4
+    elif config.dataset.name == 'cyp1a2_veith_33_train1_neg':
+            num_node_type, num_adj_type = 24, 4
+    elif config.dataset.name == 'cyp1a2_veith_33_train1_pos':
+            num_node_type, num_adj_type = 17, 4
+    elif config.dataset.name == 'cyp1a2_veith_50_train1_neg':
+            num_node_type, num_adj_type = 25, 4
+    elif config.dataset.name == 'cyp1a2_veith_50_train1_pos':
+            num_node_type, num_adj_type = 17, 4
+    elif config.dataset.name == 'cyp1a2_veith_40_train1_neg':
+            num_node_type, num_adj_type = 24, 4
+    elif config.dataset.name == 'cyp1a2_veith_40_train1_pos':
+            num_node_type, num_adj_type = 17, 4
+    elif config.dataset.name == 'cyp2c19_veith_25_train1_neg':
+            num_node_type, num_adj_type = 22, 4
+    elif config.dataset.name == 'cyp2c19_veith_25_train1_pos':
+            num_node_type, num_adj_type = 16, 4
+    elif config.dataset.name == 'cyp2c19_veith_33_train1_neg':
+            num_node_type, num_adj_type = 22, 4
+    elif config.dataset.name == 'cyp2c19_veith_33_train1_pos':
+            num_node_type, num_adj_type = 17, 4
+    elif config.dataset.name == 'cyp2c19_veith_50_train1_neg':
+            num_node_type, num_adj_type = 25, 4
+    elif config.dataset.name == 'cyp2c19_veith_50_train1_pos':
+            num_node_type, num_adj_type = 17, 4
+    elif config.dataset.name == 'cyp2c19_veith_40_train1_neg':
+            num_node_type, num_adj_type = 26, 4
+    elif config.dataset.name == 'cyp2c19_veith_40_train1_pos':
+            num_node_type, num_adj_type = 17, 4
+    elif config.dataset.name == 'herg_karim_25_train1_neg':
+            num_node_type, num_adj_type = 14, 4
+    elif config.dataset.name == 'herg_karim_25_train1_pos':
+            num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name == 'herg_karim_33_train1_neg':
+            num_node_type, num_adj_type = 12, 4
+    elif config.dataset.name == 'herg_karim_33_train1_pos':
+            num_node_type, num_adj_type = 9, 4
+    elif config.dataset.name == 'herg_karim_50_train1_neg':
+            num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name == 'herg_karim_50_train1_pos':
+            num_node_type, num_adj_type = 15, 4
+    elif config.dataset.name == 'herg_karim_40_train1_neg':
+            num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name == 'herg_karim_40_train1_pos':
+            num_node_type, num_adj_type = 14, 4
+    elif config.dataset.name == 'lipophilicity_astrazeneca_25_train1_neg':
+            num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name == 'lipophilicity_astrazeneca_25_train1_pos':
+            num_node_type, num_adj_type = 9, 4
+    elif config.dataset.name == 'lipophilicity_astrazeneca_33_train1_neg':
+            num_node_type, num_adj_type = 9, 4
+    elif config.dataset.name == 'lipophilicity_astrazeneca_33_train1_pos':
+            num_node_type, num_adj_type = 12, 4
+    elif config.dataset.name == 'lipophilicity_astrazeneca_50_train1_neg':
+            num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name == 'lipophilicity_astrazeneca_50_train1_pos':
+            num_node_type, num_adj_type = 12, 4
+    elif config.dataset.name == 'lipophilicity_astrazeneca_40_train1_neg':
+            num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name == 'lipophilicity_astrazeneca_40_train1_pos':
+            num_node_type, num_adj_type = 11, 4
     else:
         raise NotImplementedError
 
