@@ -7,7 +7,7 @@ seed: 1234
 
 dataset:
   name: bbb_martins_33_train1_neg                 # name of the dataset, the pickle file should be data/<name>.pkl
-  max_node_num: 123
+  max_node_num: 483
   subset: null              # set to None to use the whole dataset, otherwise a subset is used
 
 mcmc:                       # hyper parameters in the Langevin MC sampling

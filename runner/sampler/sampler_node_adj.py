@@ -482,6 +482,7 @@ def mol_go_sampling(epoch, model, dist_helper, test_dl, mc_sampler, config,
             # save results
             with open(save_path_smiles, 'a') as f:
                 for smiles in gen_smiles:
+                    print(smiles)
                     f.write(f'{smiles}\n')
 
             # -------- Evaluation --------
