@@ -6,7 +6,7 @@ exp_name: ames_50_train1_pos
 seed: 1234
 
 dataset:
-  name: zinc250k                 # name of the dataset, the pickle file should be data/<name>.pkl
+  name: ames_50_train1_pos                 # name of the dataset, the pickle file should be data/<name>.pkl
   max_node_num: 54
   subset: null              # set to None to use the whole dataset, otherwise a subset is used
 

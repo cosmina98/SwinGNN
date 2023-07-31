@@ -266,7 +266,7 @@ def node_adj_go_training(model, optimizer, scheduler, ema_helper,
         # training
         model.train()
         node_adj_move_forward_one_epoch(model, optimizer, ema_helper, train_dl, train_obj_gen, loss_func, epoch_logger,
-                                        'train', dataset_name, node_encoding, edge_encoding,
+                                        'train', config.dataset.name, node_encoding, edge_encoding,
                                         sanity_check_save_dir)
         scheduler.step()
         logging.debug("epoch: {:05d}| effective learning rate: {:12.6f}".format(epoch, optimizer.param_groups[0]["lr"]))
@@ -280,7 +280,7 @@ def node_adj_go_training(model, optimizer, scheduler, ema_helper,
             test_model.eval()
 
             node_adj_move_forward_one_epoch(test_model, optimizer, ema_helper, test_dl, train_obj_gen, loss_func, epoch_logger,
-                                            'test', dataset_name, node_encoding, edge_encoding,
+                                            'test', config.dataset.name, node_encoding, edge_encoding,
                                             sanity_check_save_dir)
 
             """Network weight saving"""
