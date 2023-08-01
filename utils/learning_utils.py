@@ -262,13 +262,13 @@ def get_model_input_output_channels(config):
             elif config.dataset.name == 'herg_karim_33_train1_pos':
                  raw_num_node_type, raw_num_adj_type = 9, 4
             elif config.dataset.name == 'herg_karim_50_train1_neg':
-                 raw_num_node_type, raw_num_adj_type = 10, 4
-            elif config.dataset.name == 'herg_karim_50_train1_pos':
                  raw_num_node_type, raw_num_adj_type = 15, 4
-            elif config.dataset.name == 'herg_karim_40_train1_neg':
+            elif config.dataset.name == 'herg_karim_50_train1_pos':
                  raw_num_node_type, raw_num_adj_type = 10, 4
-            elif config.dataset.name == 'herg_karim_40_train1_pos':
+            elif config.dataset.name == 'herg_karim_40_train1_neg':
                  raw_num_node_type, raw_num_adj_type = 14, 4
+            elif config.dataset.name == 'herg_karim_40_train1_pos':
+                 raw_num_node_type, raw_num_adj_type = 10, 4
             elif config.dataset.name == 'lipophilicity_astrazeneca_25_train1_neg':
                  raw_num_node_type, raw_num_adj_type = 10, 4
             elif config.dataset.name == 'lipophilicity_astrazeneca_25_train1_pos':

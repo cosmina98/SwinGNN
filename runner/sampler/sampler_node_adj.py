@@ -67,7 +67,7 @@ def mol_go_sampling(epoch, model, dist_helper, test_dl, mc_sampler, config,
     flag_node_multi_channel = node_encoding != 'ddpm'
     flag_edge_multi_channel = edge_encoding != 'ddpm'
 
-    assert config.dataset.name in ['qm9', 'zinc250k']
+    #assert config.dataset.name in ['qm9', 'zinc250k']
     assert config.flag_mol
     if config.dataset.name == 'qm9':
         num_node_type = 4
