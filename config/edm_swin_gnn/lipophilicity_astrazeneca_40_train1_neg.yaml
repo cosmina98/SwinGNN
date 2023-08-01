@@ -7,7 +7,7 @@ seed: 1234
 
 dataset:
   name: lipophilicity_astrazeneca_40_train1_neg                 # name of the dataset, the pickle file should be data/<name>.pkl
-  max_node_num: 485
+  max_node_num: 48
   subset: null              # set to None to use the whole dataset, otherwise a subset is used
 
 mcmc:                       # hyper parameters in the Langevin MC sampling
@@ -45,8 +45,8 @@ train:
   weight_decay: 0.0
 
   max_epoch: 5001          # training epochs
-  sample_interval: 100      # run sampling after <sample_interval> epochs
-  save_interval: 100         # save the model after <save_interval> epochs
+  sample_interval: 1000      # run sampling after <sample_interval> epochs
+  save_interval: 1000          # save the model after <save_interval> epochs
 
   ema_coef:                 # exponential moving average coefficient
     - 0.9

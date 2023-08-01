@@ -626,7 +626,7 @@ def load_dataset_mol(config):
     elif config.dataset.name == 'herg_karim_33_train1_pos':
             num_node_type, num_adj_type = 9, 4
     elif config.dataset.name == 'herg_karim_50_train1_neg':
-            num_node_type, num_adj_type = 10, 4
+            num_node_type, num_adj_type = 15, 4
     elif config.dataset.name == 'herg_karim_50_train1_pos':
             num_node_type, num_adj_type = 15, 4
     elif config.dataset.name == 'herg_karim_40_train1_neg':

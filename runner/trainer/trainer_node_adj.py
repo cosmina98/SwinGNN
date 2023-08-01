@@ -106,7 +106,7 @@ def node_adj_move_forward_one_epoch(model, optimizer, ema_helper, dataloader, tr
     elif dataset_name == 'herg_karim_33_train1_pos':
             oh_num_node_attr_type, oh_num_edge_attr_type = 9, 4
     elif dataset_name == 'herg_karim_50_train1_neg':
-            oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
+            oh_num_node_attr_type, oh_num_edge_attr_type = 15, 4
     elif dataset_name == 'herg_karim_50_train1_pos':
             oh_num_node_attr_type, oh_num_edge_attr_type = 15, 4
     elif dataset_name == 'herg_karim_40_train1_neg':
