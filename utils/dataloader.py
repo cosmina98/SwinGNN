@@ -277,7 +277,7 @@ def load_dataset_mol(config):
             node = torch.from_numpy(node).to(torch.float32)
             node[torch.logical_not(node_flags)] = 0.0
         elif config.dataset.name == 'cyp1a2_veith_25_train1_pos':
-            atomic_num_list=[1, 6, 7, 8, 9, 11, 78, 15, 16, 17, 14, 80, 28, 29, 34, 35, 53,0]
+            atomic_num_list=[1, 6, 7, 8, 9, 11, 14, 15, 16, 17, 80, 28, 29, 34, 35, 53,0]
             node_flags = torch.from_numpy(node > 0)  # [N = 38]
             for el in range(node.shape[0]):
                 idx = atomic_num_list.index(node[el])
@@ -592,7 +592,7 @@ def load_dataset_mol(config):
     elif config.dataset.name == 'cyp1a2_veith_33_train1_neg':
             num_node_type, num_adj_type = 24, 4
     elif config.dataset.name == 'cyp1a2_veith_33_train1_pos':
-            num_node_type, num_adj_type = 17, 4
+            num_node_type, num_adj_type = 16, 4
     elif config.dataset.name == 'cyp1a2_veith_50_train1_neg':
             num_node_type, num_adj_type = 25, 4
     elif config.dataset.name == 'cyp1a2_veith_50_train1_pos':

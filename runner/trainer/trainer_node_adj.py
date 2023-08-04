@@ -72,7 +72,7 @@ def node_adj_move_forward_one_epoch(model, optimizer, ema_helper, dataloader, tr
     elif dataset_name == 'cyp1a2_veith_33_train1_neg':
             oh_num_node_attr_type, oh_num_edge_attr_type = 24, 4
     elif dataset_name == 'cyp1a2_veith_33_train1_pos':
-            oh_num_node_attr_type, oh_num_edge_attr_type = 17, 4
+            oh_num_node_attr_type, oh_num_edge_attr_type = 16, 4
     elif dataset_name == 'cyp1a2_veith_50_train1_neg':
             oh_num_node_attr_type, oh_num_edge_attr_type = 25, 4
     elif dataset_name == 'cyp1a2_veith_50_train1_pos':
