@@ -250,7 +250,7 @@ def get_model_input_output_channels(config):
             elif config.dataset.name == 'cyp2c19_veith_50_train1_pos':
                  raw_num_node_type, raw_num_adj_type = 17, 4
             elif config.dataset.name == 'cyp2c19_veith_40_train1_neg':
-                 raw_num_node_type, raw_num_adj_type = 26, 4
+                 raw_num_node_type, raw_num_adj_type = 24, 4
             elif config.dataset.name == 'cyp2c19_veith_40_train1_pos':
                  raw_num_node_type, raw_num_adj_type = 17, 4
             elif config.dataset.name == 'herg_karim_25_train1_neg':

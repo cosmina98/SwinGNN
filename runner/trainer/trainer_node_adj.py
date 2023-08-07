@@ -94,9 +94,9 @@ def node_adj_move_forward_one_epoch(model, optimizer, ema_helper, dataloader, tr
     elif dataset_name == 'cyp2c19_veith_50_train1_pos':
             oh_num_node_attr_type, oh_num_edge_attr_type = 17, 4
     elif dataset_name == 'cyp2c19_veith_40_train1_neg':
-            oh_num_node_attr_type, oh_num_edge_attr_type = 26, 4
+            oh_num_node_attr_type, oh_num_edge_attr_type = 24, 4
     elif dataset_name == 'cyp2c19_veith_40_train1_pos':
-            oh_num_node_attr_type, oh_num_edge_attr_type = 17, 4
+            oh_num_node_attr_type, oh_num_edge_attr_type = 18, 4
     elif dataset_name == 'herg_karim_25_train1_neg':
             oh_num_node_attr_type, oh_num_edge_attr_type = 14, 4
     elif dataset_name == 'herg_karim_25_train1_pos':

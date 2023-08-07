@@ -136,9 +136,9 @@ def mol_go_sampling(epoch, model, dist_helper, test_dl, mc_sampler, config,
     elif config.dataset.name == 'cyp2c19_veith_50_train1_pos':
             num_node_type, num_adj_type = 17, 4
     elif config.dataset.name == 'cyp2c19_veith_40_train1_neg':
-            num_node_type, num_adj_type = 26, 4
+            num_node_type, num_adj_type = 24, 4
     elif config.dataset.name == 'cyp2c19_veith_40_train1_pos':
-            num_node_type, num_adj_type = 17, 4
+            num_node_type, num_adj_type = 18, 4
     elif config.dataset.name == 'herg_karim_25_train1_neg':
             num_node_type, num_adj_type = 14, 4
     elif config.dataset.name == 'herg_karim_25_train1_pos':
@@ -423,7 +423,7 @@ def mol_go_sampling(epoch, model, dist_helper, test_dl, mc_sampler, config,
             elif config.dataset.name== 'cyp2c19_veith_33_train1_pos':
                     atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 78, 15, 16, 17, 80, 19, 28, 29, 35, 53,0]
             elif config.dataset.name== 'cyp2c19_veith_40_train1_neg':
-                    atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 78, 15, 16, 17, 14, 19, 20, 80, 25, 26, 29, 30, 33, 34, 35, 44, 50, 51, 53,0]
+                    atomic_num_list=[1, 3, 5, 6, 7, 8, 9, 11, 78, 15, 16, 17, 14, 80, 20, 25, 26, 29, 30, 33, 35, 50, 51, 53,0]
             elif config.dataset.name== 'cyp2c19_veith_40_train1_pos':
                     atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 14, 15, 16, 17, 80, 19, 78, 26, 29, 35, 53,0]
             elif config.dataset.name== 'cyp2c19_veith_50_train1_neg':

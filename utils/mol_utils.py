@@ -195,7 +195,7 @@ def gen_mol(x, adj, dataset, largest_connected_comp=True):
     elif dataset == 'cyp2c19_veith_33_train1_pos':
          atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 78, 15, 16, 17, 80, 19, 28, 29, 35, 53,0]
     elif dataset == 'cyp2c19_veith_40_train1_neg':
-         atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 78, 15, 16, 17, 14, 19, 20, 80, 25, 26, 29, 30, 33, 34, 35, 44, 50, 51, 53,0]
+         atomic_num_list=[1, 3, 5, 6, 7, 8, 9, 11, 78, 15, 16, 17, 14, 80, 20, 25, 26, 29, 30, 33, 35, 50, 51, 53,0]
     elif dataset == 'cyp2c19_veith_40_train1_pos':
          atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 14, 15, 16, 17, 80, 19, 78, 26, 29, 35, 53,0]
     elif dataset == 'cyp2c19_veith_50_train1_neg':
