@@ -81,6 +81,8 @@ NAME_TO_NX_GENERATOR = {
 }
 
 
+
+
 class GraphGenerator:
     """
     Graph generator for community and lobster graph datasets.
@@ -339,6 +341,12 @@ def save_ego_dd_datasets(graphs, save_name):
         f.write(save_name + '\n')
         f.write(str(len(graphs)))
 
+def load_custom_graph_list(fname, **kwargs):
+  with open(fname, "rb") as f:
+    graph_list = pickle.load(f)
+    graph_list= [nx.Graph(nx.DiGraph(g)) for g in graph_list]
+    return graph_list
+  
 
 def main():
     """
@@ -402,6 +410,217 @@ def main():
     save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
     plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
     # print("Max #nodes: {:d}".format(max([g.number_of_nodes() for g in graphs])))
+
+
+
+    """ba2motif_50_train1_pos"""
+    dataset_name ='ba2motif_50_train1_pos'
+    suffix = ''
+    print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset_name + suffix, '-' * 20))
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_50\ba2motif_50_train1_pos.p',
+        min_num_nodes=25,
+        max_num_nodes=25,
+        name='ba2motif_50_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+
+
+    dataset_name ='ba2motif_50_train1_neg'
+    suffix = ''
+    print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset_name + suffix, '-' * 20))
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_50\ba2motif_50_train1_neg.p',
+        min_num_nodes=25,
+        max_num_nodes=25,
+        name='ba2motif_50_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
+    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+
+
+    """ba2motif_40_train1_pos"""
+    dataset_name ='ba2motif_40_train1_pos'
+    suffix = ''
+    print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset_name + suffix, '-' * 20))
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_40\ba2motif_40_train1_pos.p',
+        min_num_nodes=25,
+        max_num_nodes=25,
+        name='ba2motif_40_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+
+
+    dataset_name ='ba2motif_40_train1_neg'
+    suffix = ''
+    print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset_name + suffix, '-' * 20))
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_40\ba2motif_40_train1_neg.p',
+        min_num_nodes=25,
+        max_num_nodes=25,
+        name='ba2motif_40_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
+    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+
+
+
+    """ba2motif_33_train1_pos"""
+    dataset_name ='ba2motif_33_train1_pos'
+    suffix = ''
+    print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset_name + suffix, '-' * 20))
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_33\ba2motif_33_train1_pos.p',
+        min_num_nodes=25,
+        max_num_nodes=25,
+        name='ba2motif_33_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+
+
+    dataset_name ='ba2motif_33_train1_neg'
+    suffix = ''
+    print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset_name + suffix, '-' * 20))
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_33\ba2motif_33_train1_neg.p',
+        min_num_nodes=25,
+        max_num_nodes=25,
+        name='ba2motif_33_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
+    
+
+    """ba2motif_25_train1_pos"""
+    dataset_name ='ba2motif_25_train1_pos'
+    suffix = ''
+    print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset_name + suffix, '-' * 20))
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_25\ba2motif_25_train1_pos.p',
+        min_num_nodes=25,
+        max_num_nodes=25,
+        name='ba2motif_25_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+
+
+    dataset_name ='ba2motif_25_train1_neg'
+    suffix = ''
+    print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset_name + suffix, '-' * 20))
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_25\ba2motif_25_train1_neg.p',
+        min_num_nodes=25,
+        max_num_nodes=25,
+        name='ba2motif_25_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
+    
+    dataset_name = 'deezer_ego_nets_50_train1_pos'
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_50_train1_pos.p',
+        min_num_nodes=11,
+        max_num_nodes=363,
+        name='deezer_ego_nets_50_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    
+    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+
+
+    dataset_name = 'deezer_ego_nets_50_train1_neg'
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_50_train1_neg.p',
+        min_num_nodes=11,
+        max_num_nodes=363,
+        name='deezer_ego_nets_50_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
+    
+    dataset_name = 'deezer_ego_nets_40_train1_pos'
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_40_train1_pos.p',
+        min_num_nodes=11,
+        max_num_nodes=363,
+        name='deezer_ego_nets_40_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    
+    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+
+
+    dataset_name = 'deezer_ego_nets_40_train1_neg'
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_40_train1_neg.p',
+        min_num_nodes=11,
+        max_num_nodes=363,
+        name='deezer_ego_nets_40_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
+    
+    dataset_name = 'deezer_ego_nets_33_train1_pos'
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_33_train1_pos.p',
+        min_num_nodes=11,
+        max_num_nodes=363,
+        name='deezer_ego_nets_33_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    
+    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+
+
+    dataset_name = 'deezer_ego_nets_33_train1_neg'
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_33_train1_neg.p',
+        min_num_nodes=11,
+        max_num_nodes=363,
+        name='deezer_ego_nets_33_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
+    
+    dataset_name = 'deezer_ego_nets_25_train1_pos'
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_25_train1_pos.p',
+        min_num_nodes=11,
+        max_num_nodes=363,
+        name='deezer_ego_nets_25_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    
+    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+
+
+    dataset_name = 'deezer_ego_nets_25_train1_neg'
+    graphs = load_custom_graph_list(
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_25_train1_neg.p',
+        min_num_nodes=11,
+        max_num_nodes=363,
+        name='deezer_ego_nets_25_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
+    
+    
+    
+
+    
+    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+
+
 
 
 if __name__ == '__main__':

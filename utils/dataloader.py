@@ -261,7 +261,7 @@ def load_dataset_mol(config):
             node = torch.from_numpy(node).to(torch.float32)
             node[torch.logical_not(node_flags)] = 0.0
         elif config.dataset.name == 'bbb_martins_40_train1_pos':
-            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 15, 16, 17, 20, 35, 53,0]
+            atomic_num_list=[1, 5, 6, 7, 8, 9, 11, 15, 16, 17, 20, 35,0]    
             node_flags = torch.from_numpy(node > 0)  # [N = 38]
             for el in range(node.shape[0]):
                 idx = atomic_num_list.index(node[el])
@@ -576,9 +576,9 @@ def load_dataset_mol(config):
     elif config.dataset.name == 'bbb_martins_33_train1_neg':
             num_node_type, num_adj_type = 10, 4
     elif config.dataset.name == 'bbb_martins_33_train1_pos':
-            num_node_type, num_adj_type = 12, 4
+            num_node_type, num_adj_type = 11, 4
     elif config.dataset.name == 'bbb_martins_50_train1_neg':
-            num_node_type, num_adj_type = 11, 43
+            num_node_type, num_adj_type = 11, 4
     elif config.dataset.name == 'bbb_martins_50_train1_pos':
             num_node_type, num_adj_type = 12, 4
     elif config.dataset.name == 'bbb_martins_40_train1_neg':

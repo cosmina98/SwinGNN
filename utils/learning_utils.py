@@ -212,9 +212,9 @@ def get_model_input_output_channels(config):
             elif config.dataset.name == 'bbb_martins_33_train1_neg':
                  raw_num_node_type, raw_num_adj_type = 10, 4
             elif config.dataset.name == 'bbb_martins_33_train1_pos':
-                 raw_num_node_type, raw_num_adj_type = 12, 4
+                 raw_num_node_type, raw_num_adj_type = 11, 4
             elif config.dataset.name == 'bbb_martins_50_train1_neg':
-                 raw_num_node_type, raw_num_adj_type = 11, 43
+                 raw_num_node_type, raw_num_adj_type = 11, 4
             elif config.dataset.name == 'bbb_martins_50_train1_pos':
                  raw_num_node_type, raw_num_adj_type = 12, 4
             elif config.dataset.name == 'bbb_martins_40_train1_neg':

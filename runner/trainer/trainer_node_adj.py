@@ -56,9 +56,9 @@ def node_adj_move_forward_one_epoch(model, optimizer, ema_helper, dataloader, tr
     elif dataset_name == 'bbb_martins_33_train1_neg':
             oh_num_node_attr_type, oh_num_edge_attr_type = 10, 4
     elif dataset_name == 'bbb_martins_33_train1_pos':
-            oh_num_node_attr_type, oh_num_edge_attr_type = 12, 4
+            oh_num_node_attr_type, oh_num_edge_attr_type = 11, 4
     elif dataset_name == 'bbb_martins_50_train1_neg':
-            oh_num_node_attr_type, oh_num_edge_attr_type = 11, 43
+            oh_num_node_attr_type, oh_num_edge_attr_type = 11, 4
     elif dataset_name == 'bbb_martins_50_train1_pos':
             oh_num_node_attr_type, oh_num_edge_attr_type = 12, 4
     elif dataset_name == 'bbb_martins_40_train1_neg':
