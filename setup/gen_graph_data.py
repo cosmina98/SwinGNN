@@ -424,8 +424,8 @@ def main():
         name='ba2motif_50_train1_pos',
         node_attributes=False,
         graph_labels=True)
-    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
-    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+    #save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
 
 
     dataset_name ='ba2motif_50_train1_neg'
@@ -438,8 +438,8 @@ def main():
         name='ba2motif_50_train1_neg',
         node_attributes=False,
         graph_labels=True)
-    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
-    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+    #save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
 
 
     """ba2motif_40_train1_pos"""
@@ -453,8 +453,8 @@ def main():
         name='ba2motif_40_train1_pos',
         node_attributes=False,
         graph_labels=True)
-    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
-    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+    #save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
 
 
     dataset_name ='ba2motif_40_train1_neg'
@@ -467,8 +467,8 @@ def main():
         name='ba2motif_40_train1_neg',
         node_attributes=False,
         graph_labels=True)
-    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
-    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+    #save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
 
 
 
@@ -483,8 +483,8 @@ def main():
         name='ba2motif_33_train1_pos',
         node_attributes=False,
         graph_labels=True)
-    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
-    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+    #save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
 
 
     dataset_name ='ba2motif_33_train1_neg'
@@ -510,8 +510,8 @@ def main():
         name='ba2motif_25_train1_pos',
         node_attributes=False,
         graph_labels=True)
-    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
-    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+    #save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
 
 
     dataset_name ='ba2motif_25_train1_neg'
@@ -525,100 +525,96 @@ def main():
         node_attributes=False,
         graph_labels=True)
     
-    dataset_name = 'deezer_ego_nets_50_train1_pos'
+    dataset_name = 'synthetic_50_train1_pos'
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_50_train1_pos.p',
-        min_num_nodes=11,
-        max_num_nodes=363,
-        name='deezer_ego_nets_50_train1_pos',
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_25\synthetic_50_train1_pos.p',
+        max_num_nodes=100,
+        max_num_nodes=100,
+        name='synthetic_50_train1_pos',
         node_attributes=False,
         graph_labels=True)
     
-    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
-    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+    #save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
 
 
-    dataset_name = 'deezer_ego_nets_50_train1_neg'
+    dataset_name = 'synthetic_50_train1_neg'
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_50_train1_neg.p',
-        min_num_nodes=11,
-        max_num_nodes=363,
-        name='deezer_ego_nets_50_train1_neg',
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_50\synthetic_50_train1_neg.p',
+        max_num_nodes=100,
+        max_num_nodes=100,
+        name='synthetic_50_train1_neg',
         node_attributes=False,
         graph_labels=True)
     
-    dataset_name = 'deezer_ego_nets_40_train1_pos'
+    dataset_name = 'synthetic_40_train1_pos'
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_40_train1_pos.p',
-        min_num_nodes=11,
-        max_num_nodes=363,
-        name='deezer_ego_nets_40_train1_pos',
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_40\synthetic_40_train1_pos.p',
+        max_num_nodes=100,
+        max_num_nodes=100,
+        name='synthetic_40_train1_pos',
         node_attributes=False,
         graph_labels=True)
     
-    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
-    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+    #save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
 
 
-    dataset_name = 'deezer_ego_nets_40_train1_neg'
+    dataset_name = 'synthetic_40_train1_neg'
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_40_train1_neg.p',
-        min_num_nodes=11,
-        max_num_nodes=363,
-        name='deezer_ego_nets_40_train1_neg',
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_40\synthetic_40_train1_neg.p',
+        max_num_nodes=100,
+        max_num_nodes=100,
+        name='synthetic_40_train1_neg',
         node_attributes=False,
         graph_labels=True)
     
-    dataset_name = 'deezer_ego_nets_33_train1_pos'
+    dataset_name = 'synthetic_33_train1_pos'
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_33_train1_pos.p',
-        min_num_nodes=11,
-        max_num_nodes=363,
-        name='deezer_ego_nets_33_train1_pos',
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_33\synthetic_33_train1_pos.p',
+        max_num_nodes=100,
+        max_num_nodes=100,
+        name='synthetic_33_train1_pos',
         node_attributes=False,
         graph_labels=True)
     
-    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
-    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+    #save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
 
 
-    dataset_name = 'deezer_ego_nets_33_train1_neg'
+    dataset_name = 'synthetic_33_train1_neg'
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_33_train1_neg.p',
-        min_num_nodes=11,
-        max_num_nodes=363,
-        name='deezer_ego_nets_33_train1_neg',
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_33\synthetic_33_train1_neg.p',
+        max_num_nodes=100,
+        max_num_nodes=100,
+        name='synthetic_33_train1_neg',
         node_attributes=False,
         graph_labels=True)
     
-    dataset_name = 'deezer_ego_nets_25_train1_pos'
+    dataset_name = 'synthetic_25_train1_pos'
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_25_train1_pos.p',
-        min_num_nodes=11,
-        max_num_nodes=363,
-        name='deezer_ego_nets_25_train1_pos',
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_25\synthetic_25_train1_pos.p',
+        max_num_nodes=100,
+        max_num_nodes=100,
+        name='synthetic_25_train1_pos',
         node_attributes=False,
         graph_labels=True)
     
-    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
-    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+    #save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
 
 
-    dataset_name = 'deezer_ego_nets_25_train1_neg'
+    dataset_name = 'synthetic_25_train1_neg'
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\deezer_ego_nets\deezer_ego_nets_25\deezer_ego_nets_25_train1_neg.p',
-        min_num_nodes=11,
-        max_num_nodes=363,
-        name='deezer_ego_nets_25_train1_neg',
+        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_25\synthetic_25_train1_neg.p',
+        max_num_nodes=100,
+        max_num_nodes=100,
+        name='synthetic_25_train1_neg',
         node_attributes=False,
         graph_labels=True)
-    
-    
-    
 
-    
-    save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
-    plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
+    #save_ego_dd_datasets(graphs, dataset_name.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset_name + suffix, save_dir='data')
 
 
 

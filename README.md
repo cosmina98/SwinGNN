@@ -28,7 +28,7 @@ cd evaluation/orca && g++ -O2 -std=c++11 -o orca orca.cpp && cd $PROJ_DIR
 ### Setup datasets
 ```bash
 # prepare datasets
-python setup/gen_graph_data.py  # prepare various synthetic and real-world graph datasets
+python setup/gen_graph_data.py  # prepare various ba2motif and real-world graph datasets
 python setup/mol_preprocess.py --dataset ZINC250k  # prepare ZINC250k dataset
 python setup/mol_preprocess.py --dataset QM9  # prepare QM9 dataset
 ```
