@@ -189,6 +189,8 @@ def go_sampling(epoch, model, dist_helper, test_dl, mc_sampler, config, writer=N
             path_plot_subdir = os.path.join(shared_plot_dir, plot_subdir)
             path_final_samples_array = os.path.join(path_plot_subdir, 'final_samples_array.npz')
             path_final_samples_graph = os.path.join(path_plot_subdir, 'final_samples_graph.pt')
+            path_final_samples_graph2 = os.path.join(path_plot_subdir, 'final_samples_graph.pkl')
+
             os.makedirs(path_plot_subdir, exist_ok=True)
 
             # Note we must use exactly what is returned in the sampler_dl.
@@ -200,6 +202,11 @@ def go_sampling(epoch, model, dist_helper, test_dl, mc_sampler, config, writer=N
             np.savez_compressed(path_final_samples_array, samples=final_samples.cpu().numpy())
 
             final_samples_graph = adjs_to_graphs(final_samples.cpu().numpy())  # nx objects
+
+            with open(path_final_samples_graph2,'wb')as f:
+             pickle.dump(final_samples_graph ,f)
+
+
             pickle.dump(final_samples_graph, open(path_final_samples_graph, 'wb'))
 
             # evaluate final samples against the testing set
