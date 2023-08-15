@@ -1,4 +1,4 @@
-
+9
 # the output files will be stored in the directory <exp_dir>/<exp_name>
 exp_dir: exp
 exp_name: ba2motif_40_train1_neg
@@ -7,7 +7,7 @@ seed: 1234
 
 dataset:
   name: ba2motif_40_train1_neg     # name of the dataset, the pickle file should be data/<name>.pkl
-  max_node_num: 25
+  max_node_num: 48
   subset: null              # set to None to use the whole dataset, otherwise a subset is used
 
 mcmc:                       # hyper parameters in the Langevin MC sampling
@@ -32,20 +32,20 @@ model:
     - 4
 
 test:
-  batch_size: 0             # testing batch size
+  batch_size: 100             # testing batch size
   eval_size: 0              # number of samples to evaluate, set to 0 to use the whole dataset
 
 train:
-  batch_size: 80            # training batch size
+  batch_size: 100            # training batch size
 
   lr_dacey: 1.0             # optimizer (Adam)
   lr_init: 1.0e-4
   weight_decay: 0.0
 
   max_epoch: 5001           # training epochs
-  sample_interval: 100      # run sampling after <sample_interval> epochs
-  save_interval: 100        # save the model after <save_interval> epochs
-
+  sample_interval: 1000      # run sampling after <sample_interval> epochs
+  save_interval: 1000        # save the model after <save_interval> epochs
+0
   ema_coef:                 # exponential moving average coefficient
     - 0.9
     - 0.95
