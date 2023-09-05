@@ -1,13 +1,13 @@
 
 # the output files will be stored in the directory <exp_dir>/<exp_name>
 exp_dir: exp
-exp_name: ego_small_edm_unet
+exp_name: synthetic_2_33_train1_pos
 
 seed: 1234
 
 dataset:
-  name: ego_small           # name of the dataset, the pickle file should be data/<name>.pkl
-  max_node_num: 32
+  name: synthetic_2_33_train1_pos           # name of the dataset, the pickle file should be data/<name>.pkl
+  max_node_num: 30
   subset: null              # set to None to use the whole dataset, otherwise a subset is used
 
 mcmc:                       # hyper parameters in the Langevin MC sampling
@@ -36,14 +36,15 @@ test:
   eval_size: 0              # number of samples to evaluate, set to 0 to use the whole dataset
 
 train:
-  batch_size: 160           # training batch size
+  batch_size: 20           # training batch size
 
   lr_dacey: 1.0             # optimizer (Adam)
   lr_init: 1.0e-4
   weight_decay: 0.0
 
-  max_epoch: 5001           # training epochs
-  sample_interval: 10000      # run sampling after <sample_interval> epochs
+  max_epoch: 5001         # training epochs
+           # training epochs
+  sample_interval: 100      # run sampling after <sample_interval> epochs
   save_interval: 100        # save the model after <save_interval> epochs
 
   ema_coef:                 # exponential moving average coefficient

@@ -46,7 +46,7 @@ export NUM_GPUS=4
 torchrun --nproc_per_node=$NUM_GPUS train.py -c config/edm_swin_gnn/grid_edm_swin_gnn_80.yaml --batch_size 40 --ddp -m=grid_ddp
 
 # training cmds on molecule dataset (with node/edge attributes), e.g., to train on QM9 dataset
-torchrun --nproc_per_node=$NUM_GPUS train.py -c config/edm_swin_gnn/qm9_edm_swin_gnn.yaml --feature_dims 60 --node_encoding one_hot --edge_encoding one_hot --batch_size 10240 --ddp -m qm9
+torchrun --nproc_per_node=$NUM_GPUS y -c config/edm_swin_gnn/qm9_edm_swin_gnn.yaml --feature_dims 60 --node_encoding one_hot --edge_encoding one_hot --batch_size 10240 --ddp -m qm9
 ```
 
 ## Testing command

@@ -3,7 +3,7 @@ data:
   dir: './data'
   batch_size: 128 
   test_split: 0.2
-  max_node_num: 20
+  max_node_num: 24
   max_feat_num: 10
   init: deg
 
