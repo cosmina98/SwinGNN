@@ -693,7 +693,7 @@ def load_dataset_general(config):
             dist.barrier()
         file_path = os.path.join(data_dir, file_name)
 
-        _pickle_path = file_path + '.pkl'
+        _pickle_path = file_path + '.p'
         assert os.path.exists(_pickle_path), 'File not found: ' + _pickle_path
         graph_list = pickle.load(open(_pickle_path, 'rb'))
 
