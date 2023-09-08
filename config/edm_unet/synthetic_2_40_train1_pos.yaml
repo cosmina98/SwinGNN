@@ -7,7 +7,7 @@ seed: 1234
 
 dataset:
   name: synthetic_2_40_train1_pos           # name of the dataset, the pickle file should be data/<name>.pkl
-  max_node_num: 30
+  max_node_num: 48
   subset: null              # set to None to use the whole dataset, otherwise a subset is used
 
 mcmc:                       # hyper parameters in the Langevin MC sampling
@@ -44,7 +44,7 @@ train:
 
   max_epoch: 5001         # training epochs
            # training epochs
-  sample_interval: 10      # run sampling after <sample_interval> epochs
+  max_node_num: 10000# run sampling after <sample_interval> epochs
   save_interval: 10        # save the model after <save_interval> epochs
 
   ema_coef:                 # exponential moving average coefficient
