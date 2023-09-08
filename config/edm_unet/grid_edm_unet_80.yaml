@@ -43,7 +43,7 @@ train:
   weight_decay: 0.0
 
   max_epoch: 12501         # training epochs
-  sample_interval: 10000     # run sampling after <sample_interval> epochs
+  sample_interval: 10000      # run sampling after <sample_interval> epochs
   save_interval: 10       # save the model after <save_interval> epochs
 
   ema_coef:                 # exponential moving average coefficient
