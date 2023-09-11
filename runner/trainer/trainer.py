@@ -208,7 +208,7 @@ def go_training(model, optimizer, scheduler, ema_helper,
         for sample_interval in  sample_intervals:
 
             """Sampling during training"""
-            if epoch % sample_interval == sample_interval - 1 or epoch == 0:
+            if epoch % sample_interval == 0 or epoch == 0:
                 if ema_helper is not None:
                     test_model = ema_helper[-2].ema_model  # use the second last EMA coefficient for sampling
                     ema_beta = ema_helper[-2].beta
