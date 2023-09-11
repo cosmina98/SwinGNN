@@ -21,7 +21,7 @@ def load_data(config, dist_helper, eval_mode=False):
     Setup training/validation/testing dataloader.
     """
 
-    batch_size = config.test.batch_size if eval_mode else config.train.batch_size
+    batch_size = config.test.batch_size if eval_mode else config.train.batch_size 
 
     def _build_dataloader(in_dataset):
         if dist_helper.is_ddp:

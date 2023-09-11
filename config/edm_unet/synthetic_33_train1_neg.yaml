@@ -46,7 +46,7 @@ train:
            # training epochs
   sample_interval: 100      # run sampling after <sample_interval> epochs
   save_interval: 100        # save the model after <save_interval> epochs
-
+  num_samples:133
   ema_coef:                 # exponential moving average coefficient
     - 0.9
     - 0.95

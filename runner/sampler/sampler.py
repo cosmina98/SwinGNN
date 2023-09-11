@@ -45,8 +45,9 @@ def go_sampling(epoch, model, dist_helper, test_dl, mc_sampler, config, writer=N
         if flag_valid_eval_size:
             total_samples = eval_size
         else:
-            total_samples = config.train.batch_size
-        batch_size = config.train.batch_size
+            total_samples = config.train.num_samples #config.train.batch_size
+            #total_samples = 2
+        batch_size = config.train.num_samples #config.train.batch_size
 
     os.makedirs(shared_plot_dir, exist_ok=True)
     logging.info("Sampling {:d} samples with batch size {:d}".format(total_samples, batch_size))

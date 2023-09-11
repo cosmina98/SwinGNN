@@ -42,10 +42,11 @@ train:
   lr_init: 1.0e-4
   weight_decay: 0.0
 
-  max_epoch: 5001         # training epochs
+  max_epoch: 2001         # training epochs
            # training epochs
-  sample_interval: 10000 # run sampling after <sample_interval> epochs
-  save_interval: 10        # save the model after <save_interval> epochs
+  sample_interval: 50 # run sampling after <sample_interval> epochs
+  save_interval: 200        # save the model after <save_interval> epochs
+  num_samples:101
 
   ema_coef:                 # exponential moving average coefficient
     - 0.9

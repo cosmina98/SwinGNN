@@ -41,7 +41,7 @@ train:
   lr_dacey: 1.0             # optimizer (Adam)
   lr_init: 1.0e-4
   weight_decay: 0.0
-
+  num_samples:133
   max_epoch: 5001         # training epochs
            # training epochs
   sample_interval: 100      # run sampling after <sample_interval> epochs
