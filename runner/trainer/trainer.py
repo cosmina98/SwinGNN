@@ -160,7 +160,7 @@ def go_training(model, optimizer, scheduler, ema_helper,
         f_train_loss, f_test_loss = None, None
 
     save_interval = config.train.save_interval
-    sample_interval = config.train.sample_interval
+    sample_intervals = config.train.sample_interval
     sanity_check_save_dir = os.path.join(config.logdir, 'sanity_check_training_data')
 
     flag_matching = config.train.matching
@@ -205,26 +205,28 @@ def go_training(model, optimizer, scheduler, ema_helper,
         # show the training and testing status
         print_epoch_learning_status(epoch_logger, f_train_loss, f_test_loss, writer, config.mcmc.name, flag_node_adj=False)
 
-        """Sampling during training"""
-        if epoch % sample_interval == sample_interval - 1 or epoch == 0:
-            if ema_helper is not None:
-                test_model = ema_helper[-2].ema_model  # use the second last EMA coefficient for sampling
-                ema_beta = ema_helper[-2].beta
-            else:
-                test_model = model
-                ema_beta = 1.0
-            test_model.eval()
-            sampling_params = {'model_nm': 'training_e{:05d}'.format(epoch),
-                               'weight_kw': '{:.3f}'.format(ema_beta),
-                               'model_path': os.path.join(config.model_ckpt_dir,
-                                                          f"{config.dataset.name}_{epoch:05d}.pth")}
+        for sample_interval in  sample_intervals:
 
-            if epoch == 0:
-                go_sampling(epoch, test_model, dist_helper, test_dl, mc_sampler, config, writer, sanity_check=True,
-                            sampling_params=sampling_params, eval_mode=False)
-            else:
-                go_sampling(epoch, test_model, dist_helper, test_dl, mc_sampler, config, writer, sanity_check=False,
-                            sampling_params=sampling_params, eval_mode=False)
+            """Sampling during training"""
+            if epoch % sample_interval == sample_interval - 1 or epoch == 0:
+                if ema_helper is not None:
+                    test_model = ema_helper[-2].ema_model  # use the second last EMA coefficient for sampling
+                    ema_beta = ema_helper[-2].beta
+                else:
+                    test_model = model
+                    ema_beta = 1.0
+                test_model.eval()
+                sampling_params = {'model_nm': 'training_e{:05d}'.format(epoch),
+                                'weight_kw': '{:.3f}'.format(ema_beta),
+                                'model_path': os.path.join(config.model_ckpt_dir,
+                                                            f"{config.dataset.name}_{epoch:05d}.pth")}
+
+                if epoch == 0:
+                    go_sampling(epoch, test_model, dist_helper, test_dl, mc_sampler, config, writer, sanity_check=True,
+                                sampling_params=sampling_params, eval_mode=False)
+                else:
+                    go_sampling(epoch, test_model, dist_helper, test_dl, mc_sampler, config, writer, sanity_check=False,
+                                sampling_params=sampling_params, eval_mode=False)
 
     # Destroy dedicated txt logger
     if get_ddp_save_flag():

@@ -44,9 +44,9 @@ train:
 
   max_epoch: 2001         # training epochs
            # training epochs
-  sample_interval: 50 # run sampling after <sample_interval> epochs
-  save_interval: 200        # save the model after <save_interval> epochs
-  num_samples:101
+  sample_interval: [100,200,500,660,800,1000,1320,1500,2000]     # run sampling after <sample_interval> epochs
+  save_interval: 2000        # save the model after <save_interval> epochs
+  num_samples: 101
 
   ema_coef:                 # exponential moving average coefficient
     - 0.9

@@ -248,7 +248,7 @@ def node_adj_go_training(model, optimizer, scheduler, ema_helper,
         f_train_loss, f_test_loss = None, None
 
     save_interval = config.train.save_interval
-    sample_interval = config.train.sample_interval
+    sample_intervals = config.train.sample_interval
     sanity_check_save_dir = os.path.join(config.logdir, 'sanity_check_training_data')
 
     node_encoding = config.train.node_encoding
@@ -302,16 +302,17 @@ def node_adj_go_training(model, optimizer, scheduler, ema_helper,
             test_model = model
             ema_beta = 1.0
         test_model.eval()
-        if epoch % sample_interval == 0:
-            sampling_params = {'model_nm': 'training_e{:05d}'.format(epoch),
-                               'weight_kw': '{:.3f}'.format(ema_beta),
-                               'model_path': os.path.join(config.model_ckpt_dir, f"{config.dataset.name}_{epoch:05d}.pth")}
+        for sample_interval in  sample_intervals:
+            if epoch % sample_interval == 0:
+                sampling_params = {'model_nm': 'training_e{:05d}'.format(epoch),
+                                'weight_kw': '{:.3f}'.format(ema_beta),
+                                'model_path': os.path.join(config.model_ckpt_dir, f"{config.dataset.name}_{epoch:05d}.pth")}
 
-            if config.flag_mol:
-                mol_go_sampling(epoch=epoch, model=model, dist_helper=dist_helper, eval_mode=False,
-                                test_dl=test_dl, mc_sampler=mc_sampler, config=config, sanity_check=epoch == 0,
-                                init_noise_strengths=[float('inf')], sampling_params=sampling_params,
-                                writer=writer)
+                if config.flag_mol:
+                        mol_go_sampling(epoch=epoch, model=model, dist_helper=dist_helper, eval_mode=False,
+                                        test_dl=test_dl, mc_sampler=mc_sampler, config=config, sanity_check=epoch == 0,
+                                        init_noise_strengths=[float('inf')], sampling_params=sampling_params,
+                                        writer=writer)
 
     # Destroy dedicated txt logger
     if get_ddp_save_flag():

@@ -68,7 +68,7 @@ def parse_arguments(mode='train'):
                             help='To overwrite the training epochs specified in the config.')
         parser.add_argument('--lr_init', default=None, type=float,
                             help='To overwrite the initial learning rate specified in the config.')
-        parser.add_argument('--sample_interval', type=int, default=None,
+        parser.add_argument('--sample_interval', type=list, default=None,
                             help='To overwrite the sample interval specified in the config.')
         parser.add_argument('--save_interval', type=int, default=None,
                             help='To overwrite the save interval specified in the config.')
