@@ -303,7 +303,7 @@ def node_adj_go_training(model, optimizer, scheduler, ema_helper,
             ema_beta = 1.0
         test_model.eval()
         for sample_interval in  sample_intervals:
-            if epoch % sample_interval == 0:
+            if epoch % (sample_interval-1) == 0 and epoch != 0:
                 sampling_params = {'model_nm': 'training_e{:05d}'.format(epoch),
                                 'weight_kw': '{:.3f}'.format(ema_beta),
                                 'model_path': os.path.join(config.model_ckpt_dir, f"{config.dataset.name}_{epoch:05d}.pth")}
