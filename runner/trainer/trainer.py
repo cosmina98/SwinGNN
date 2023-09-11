@@ -184,7 +184,7 @@ def go_training(model, optimizer, scheduler, ema_helper,
         logging.debug("epoch: {:05d}| effective learning rate: {:12.6f}".format(epoch, optimizer.param_groups[0]["lr"]))
 
         # testing
-        if epoch % save_interval == save_interval - 1 or epoch == 0:
+        if (epoch % save_interval == 0) or (epoch == 0):
             if ema_helper is not None:
                 test_model = ema_helper[0].ema_model
             else:
