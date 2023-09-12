@@ -1,9 +1,10 @@
 --extra-index-url https://download.pytorch.org/whl/cu113
+cython
+pomegranate==1.0.3
 torch
 torchvision
 torchaudio
 pandas==1.5.0
-cython
 easydict
 matplotlib
 networkx==2.8.7
