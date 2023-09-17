@@ -306,7 +306,11 @@ def set_seed_and_logger(config, log_level, comment, dist_helper, eval_mode=False
         if 'dev' in config:
             # reset device if it is already set
             config.dev = None
-        config.dev = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        if torch.cuda.is_available():
+             config.dev =torch.device('cuda' )
+        elif torch.backends.mps.is_available(): 
+             config.dev = torch.device('mps' )
+        else:  config.dev = torch.device('cpu' )
     os.makedirs(config.logdir, exist_ok=True)
     if not eval_mode:
         os.makedirs(config.model_save_dir, exist_ok=True)

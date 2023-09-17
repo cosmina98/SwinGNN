@@ -44,9 +44,9 @@ def mol_go_sampling(epoch, model, dist_helper, test_dl, mc_sampler, config,
         epoch_or_eval_stamp = 'eval_' + time.strftime('%b-%d-%H-%M-%S')
         shared_plot_dir = os.path.join(config.logdir, "sampling_during_evaluation")
         if flag_valid_eval_size:
-            total_samples = eval_size
+            total_samples = config.train.num_samples
         else:
-            total_samples = len(test_dl.dataset)
+            total_samples = config.train.num_samples
         batch_size = config.test.batch_size
     else:
         epoch_or_eval_stamp = 'eval_' + f"epoch_{epoch:05d}"
@@ -56,7 +56,7 @@ def mol_go_sampling(epoch, model, dist_helper, test_dl, mc_sampler, config,
         else:
             total_samples = config.train.num_samples #config.train.batch_size
         batch_size = config.train.num_samples #config.train.batch_size
-    total_samples = min(len(test_dl.dataset), total_samples)  # cap the number of samples to generate for mol data
+    #total_samples = min(len(test_dl.dataset), total_samples)  # cap the number of samples to generate for mol data
     os.makedirs(shared_plot_dir, exist_ok=True)
     logging.info("Sampling {:d} samples with batch size {:d}".format(total_samples, batch_size))
     if not isinstance(init_noise_strengths, list) and not isinstance(init_noise_strengths, tuple):
@@ -487,16 +487,18 @@ def mol_go_sampling(epoch, model, dist_helper, test_dl, mc_sampler, config,
 
             # -------- Evaluation --------
             scores = get_all_metrics(gen=gen_smiles, k=len(gen_smiles), device=config.dev, n_jobs=8,
-                                     test=test_smiles, train=train_smiles)
+                                     test=test_smiles) #train=train_smiles)
 
             scores_nspdk = eval_graph_list(test_graph_list, mols_to_nx(gen_mols), methods=['nspdk'])['nspdk']
 
             logging.info(f'Number of molecules: {len(gen_mols)}')
             logging.info(f'validity w/o correction: {num_no_correct / len(gen_mols)}')
-            for metric in ['valid', f'unique@{len(gen_smiles)}', 'FCD/Test', 'Novelty']:
+            for metric in ['valid', f'unique@{len(gen_smiles)}', 'FCD/Test']:
                 logging.info(f'{metric}: {scores[metric]}')
             logging.info(f'NSPDK MMD: {scores_nspdk}')
             logging.info('=' * 100)
+
+            """
 
             # save and evaluate final samples
             np.savez_compressed(path_final_samples_array,
@@ -547,6 +549,6 @@ def mol_go_sampling(epoch, model, dist_helper, test_dl, mc_sampler, config,
                     else:
                         metrics_in_tag = metrics
                     writer.add_scalar(f'{_tag}/{metrics_in_tag}', sampling_params[metrics], epoch)
-
+            """
     # clean up
     del test_adjs_gt, test_node_flags, sampler_dl
