@@ -62,7 +62,7 @@ train:
 
   edge_loss_weight: 1.0     # edge training loss weight
   node_loss_weight: 1.0     # node training loss weight
-
+  num_samples: 2338
   # below are some debug options
   matching: false           # graph matching loss
   gt_score_pred: false      # use the ground-truth score to replace the objective, only works for epsilon-prediction mode
