@@ -485,6 +485,8 @@ def mol_go_sampling(epoch, model, dist_helper, test_dl, mc_sampler, config,
                     print(smiles)
                     f.write(f'{smiles}\n')
 
+            """
+
             # -------- Evaluation --------
             scores = get_all_metrics(gen=gen_smiles, k=len(gen_smiles), device=config.dev, n_jobs=8,
                                      test=test_smiles) #train=train_smiles)
@@ -498,6 +500,7 @@ def mol_go_sampling(epoch, model, dist_helper, test_dl, mc_sampler, config,
             logging.info(f'NSPDK MMD: {scores_nspdk}')
             logging.info('=' * 100)
 
+            """
             """
 
             # save and evaluate final samples
