@@ -85,6 +85,8 @@ def mol_go_sampling(epoch, model, dist_helper, test_dl, mc_sampler, config,
             num_node_type, num_adj_type = 10, 4
     elif config.dataset.name == 'ames_50_train1_neg':
             num_node_type, num_adj_type = 10, 4
+    elif config.dataset.name  in ['ames_50_1_train1_neg', 'ames_50_1_train1_pos', 'ames_50_2_train1_neg', 'ames_50_2_train1_pos', 'ames_50_3_train1_neg', 'ames_50_3_train1_pos', 'ames_50_4_train1_neg', 'ames_50_4_train1_pos', 'ames_50_5_train1_neg', 'ames_50_5_train1_pos', 'ames_50_6_train1_neg', 'ames_50_6_train1_pos', 'ames_50_7_train1_neg', 'ames_50_7_train1_pos', 'ames_50_8_train1_neg', 'ames_50_8_train1_pos']:
+            num_node_type, num_adj_type = 10, 4
     elif config.dataset.name == 'ames_50_train1_pos':
             num_node_type, num_adj_type = 10, 4
     elif config.dataset.name == 'ames_40_train1_neg':
@@ -377,6 +379,8 @@ def mol_go_sampling(epoch, model, dist_helper, test_dl, mc_sampler, config,
             elif config.dataset.name== 'ames_50_train1_neg':
                     atomic_num_list=[1, 35, 6, 7, 8, 9, 15, 16, 17, 53,0]
             elif config.dataset.name== 'ames_50_train1_pos':
+                    atomic_num_list=[1, 35, 6, 7, 8, 9, 15, 16, 17, 53,0]
+            elif config.dataset.name  in ['ames_50_1_train1_neg', 'ames_50_1_train1_pos', 'ames_50_2_train1_neg', 'ames_50_2_train1_pos', 'ames_50_3_train1_neg', 'ames_50_3_train1_pos', 'ames_50_4_train1_neg', 'ames_50_4_train1_pos', 'ames_50_5_train1_neg', 'ames_50_5_train1_pos', 'ames_50_6_train1_neg', 'ames_50_6_train1_pos', 'ames_50_7_train1_neg', 'ames_50_7_train1_pos', 'ames_50_8_train1_neg', 'ames_50_8_train1_pos']:
                     atomic_num_list=[1, 35, 6, 7, 8, 9, 15, 16, 17, 53,0]
             elif config.dataset.name== 'ames_40_train1_neg':
                     atomic_num_list=[1, 35, 6, 7, 8, 9, 15, 16, 17, 53,0]
